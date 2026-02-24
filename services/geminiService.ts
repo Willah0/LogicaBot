@@ -25,10 +25,10 @@ Status Mapping:
 - SYSTEM_CRASH: Erro de sequência ou impossibilidade física (ex: 'passe pela porta' sem abrir).`;
 
 export async function evaluateAlgorithm(task: string, steps: string): Promise<EvaluationResult> {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY as string });
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3-pro-preview",
+      model: "gemini-3-flash-preview",
       contents: `OBJETIVO: "${task}"\nALGORITMO DO ALUNO: "${steps}"`,
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
